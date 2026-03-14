@@ -2,6 +2,5 @@ package dev.siqueira.email.dtos;
 
 import java.util.UUID;
 
-public record EmailDto(UUID emailId, String subject, String body) {
-
+public record EmailDto(UUID userId, String emailTo, String emailSubject, String body) {
 }
