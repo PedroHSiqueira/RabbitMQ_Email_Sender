@@ -1,5 +1,7 @@
 package dev.siqueira.user.producer;
 
+import dev.siqueira.user.dtos.EmailDto;
+import dev.siqueira.user.entity.User;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +14,21 @@ public class UserProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendEventAfterCreate(String message) {
-//        rabbitTemplate.convertAndSend();
+    private final String routingKey = "email-queue";
+
+    public void sendEventAfterCreate(User user) {
+        EmailDto email = new EmailDto(
+                user.getUserId(),
+                user.getEmail(),
+                "Bem vindo ao serviço de mensageria usando RabbitMQ!",
+                "Olá " + user.getName() + ", Ficamos muito felizes de ter você conosco para este serviço de mensageria, o mesmo foi desenvolvido para estudos sobre RabbitMQ, Ass: Pedro Siqueira"
+
+        );
+
+        rabbitTemplate.convertAndSend(
+                "",
+                routingKey,
+                email
+        );
     }
 }
