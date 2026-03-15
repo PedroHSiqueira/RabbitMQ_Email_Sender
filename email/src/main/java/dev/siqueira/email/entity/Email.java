@@ -27,8 +27,7 @@ public class Email {
     private String emailTo;
     private String emailFrom;
     private String emailSubject;
-    @Column(columnDefinition = "body")
-    private String Body;
+    private String body;
     private LocalDateTime sentDate;
     @Enumerated(EnumType.STRING)
     private EmailStatus status;

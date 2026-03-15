@@ -13,5 +13,12 @@ spring:
     properties:
       hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    host: ${HOST}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    virtual-host: ${VIRTUALHOST}
+
 server:
   port: 8081
