@@ -12,7 +12,7 @@ public class UserProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendMessage(String message) {
+    public void sendEventAfterCreate(String message) {
 //        rabbitTemplate.convertAndSend();
     }
 }
