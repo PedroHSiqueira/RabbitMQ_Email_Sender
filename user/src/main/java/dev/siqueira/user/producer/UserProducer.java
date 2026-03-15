@@ -31,4 +31,18 @@ public class UserProducer {
                 email
         );
     }
+
+    public void sendEventAfterDelete(User user) {
+        EmailDto email = new EmailDto(
+                user.getUserId(),
+                user.getEmail(),
+                "Remoção de Usuário",
+                "O usuário: " + user.getName() + " Foi removido do sistema!");
+
+        rabbitTemplate.convertAndSend(
+                "",
+                routingKey,
+                email
+        );
+    }
 }
