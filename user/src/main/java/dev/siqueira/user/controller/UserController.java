@@ -39,6 +39,6 @@ public class UserController {
         User user = userService.findById(id);
         userService.delete(user);
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(user);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
