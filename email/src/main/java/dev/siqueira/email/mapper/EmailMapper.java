@@ -23,6 +23,6 @@ public class EmailMapper {
     }
 
     public EmailDto toEmailDto(Email email){
-        return new EmailDto(email.getUserId(), email.getEmailSubject(), email.getEmailTo(), email.getBody());
+        return new EmailDto(email.getUserId(), email.getEmailTo(), email.getEmailSubject(), email.getBody());
     }
 }
